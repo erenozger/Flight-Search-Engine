@@ -20,7 +20,7 @@ public class Main {
 //        Airport.printAllAirports();
 
         Edge.setAllEdges(Reader.readFile(flightListFile));
-
+//        Edge.printAllEdges();
 
     }
 
