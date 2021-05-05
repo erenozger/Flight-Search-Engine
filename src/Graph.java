@@ -4,16 +4,17 @@ import java.util.HashMap;
 public class Graph {
 
     public static HashMap<Integer, Airport> airportsMap = new HashMap<Integer, Airport>(); //holds vertices of the graph (airports)
+    public static Edge[][] graphAdjList;
 
     public void createGraph(ArrayList<Airport> airports, ArrayList<Edge> edges) {
-        Edge[][] graphAdjList = new Edge[airports.size()][airports.size()];
+        graphAdjList = new Edge[airports.size()][airports.size()];
         for (int i = 0; i < airports.size(); i++) {
             airportsMap.put(i, airports.get(i));
         }
         for (int j = 0; j < edges.size(); j++) {
             addEdgeToGraph(graphAdjList, edges.get(j), airportsMap);
         }
-        printAdjMatrix(graphAdjList, airports.size(), airportsMap);
+//        printAdjMatrix(graphAdjList, airports.size(), airportsMap);
     }
 
     public int getKeyValueFromAdjList(String value, HashMap<Integer, Airport> airportsMap) {
@@ -32,7 +33,7 @@ public class Graph {
 
 
     public static void printAdjMatrix(Edge[][] graphAdjList, int n, HashMap<Integer, Airport> airportsMap) {
-        // Adj list testing function
+        // Adj list testing display function
         System.out.print("\t");
         for (int z = 0; z < n; z++) {
             System.out.print(airportsMap.get(z).getAlias() + "\t");
