@@ -110,19 +110,6 @@ public class Edge {
         this.arrival_date = arrival_date;
     }
 
-//    @Override
-//    public String toString() {
-//        return "Edge : \n" +
-//                "flight id : " + this.flight_id + "\n" +
-//                "departure_airport: " + this.departure_airport + "\n" +
-//                "arrival_airport: " + this.arrival_airport + "\n" +
-//                "dept_date : " + Main.dateToString(this.dept_date) + "\n" +
-//                "arrival_date: " + Main.dateToString(this.arrival_date) + "\n" +
-//                "duration: " + this.duration + "\n" +
-//                "price: " + this.price + "\n" +
-//                "-------------------------------------------------------------";
-//    }
-
     @Override
     public String toString() {
         return this.flight_id + "\t" + this.departure_airport.getAlias()+"->"+this.arrival_airport.getAlias();

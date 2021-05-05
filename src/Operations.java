@@ -90,7 +90,6 @@ public class Operations {
             isVisited[source] = false;
             return;
         }
-//        for (ArrayList<Edge> edgeList : Graph.graphAdjList[source]) {
         for (int destCount = 0 ; destCount < Graph.graphAdjList[source].length ; destCount++) {
             ArrayList<Edge> edgeList = Graph.graphAdjList[source][destCount];
             if(edgeList != null){
@@ -114,22 +113,14 @@ public class Operations {
                 }
                 isVisited[source] = false;
             }
-
         }
         isVisited[source] = false;
-
     }
 
     public static boolean compareTwoFlightsDate(Edge edgeName, Edge nextEdge) {
         if (edgeName == null) {
             return true;
         } else {
-//            System.out.println("-------------------------------------------------");
-//            System.out.println(edgeName.getFlight_id());
-//            System.out.println(nextEdge.getFlight_id());
-//            System.out.println("edgeName.getArrival_date() : "+ edgeName.getArrival_date());
-//            System.out.println("nextEdge.getDept_date() : " + nextEdge.getDept_date());
-//            System.out.println("sonuc : "+ edgeName.getArrival_date().compareTo(nextEdge.getDept_date()));
             if (edgeName.getArrival_date().compareTo(nextEdge.getDept_date()) == -1) {
                 return true;
             } else {
@@ -140,21 +131,13 @@ public class Operations {
 
     public static boolean compareTwoFlightsCity(ArrayList<String> pathList, Edge nextEdge){
         for(int i = 0 ; i<pathList.size();i = i + 2) {
-            if (Airport.getAirportFromAliasName(pathList.get(i)).getCity().equals(Airport.getAirportFromAliasName(nextEdge.getArrival_airport().getAlias()).getCity())) {
+            String edgeCity = Airport.getAirportFromAliasName(pathList.get(i)).getCity();
+            String newEdgeCity = Airport.getAirportFromAliasName(nextEdge.getArrival_airport().getAlias()).getCity();
+            if (edgeCity.equals(newEdgeCity)) {
                 return false;
             }
         }
         return true;
-
-//        if (edgeName == null) {
-//            return true;
-//        } else {
-//            if (edgeName.getArrival_airport().getAlias().equals(nextEdge.getDeparture_airport().getAlias())) {
-//                return true;
-//            } else {
-//                return false;
-//            }
-//        }
     }
 
     public static void displayOneFlight(String flightLine){
@@ -175,7 +158,6 @@ public class Operations {
                     System.out.print("||");
             }
         }
-
         if(startDate != null && arriveDate != null){
             long differenceInHours = arriveDate.getTime() -startDate.getTime();
             long hh = differenceInHours / (3600 * 1000);
@@ -184,7 +166,6 @@ public class Operations {
         }
         System.out.print("/"+totalPrice);
         System.out.println();
-//        System.out.print("\t" + (arriveDate-startDate) + );
     }
 
 }
