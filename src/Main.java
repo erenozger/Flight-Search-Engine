@@ -22,6 +22,10 @@ public class Main {
         Edge.setAllEdges(Reader.readFile(flightListFile));
 //        Edge.printAllEdges();
 
+        Graph gr = new Graph();
+        gr.createGraph(Airport.airports,Edge.edges);
+
+
     }
 
     public static Date stringToDate(String date) throws ParseException {

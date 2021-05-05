@@ -14,7 +14,6 @@ public class Edge {
 
     static ArrayList<Edge> edges = new ArrayList<Edge>();
 
-
     public Edge() {
     }
 
@@ -123,8 +122,8 @@ public class Edge {
                 "-------------------------------------------------------------";
     }
 
-    public static void printAllEdges(){
-        for(int i = 0 ; i<edges.size();i++)
+    public static void printAllEdges() {
+        for (int i = 0; i < edges.size(); i++)
             System.out.println(edges.get(i));
     }
 

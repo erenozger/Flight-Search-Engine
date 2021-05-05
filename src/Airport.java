@@ -26,9 +26,9 @@ public class Airport {
         }
     }
 
-    public static Airport getAirportFromAliasName(String alias){
-        for(int i = 0 ; i<airports.size(); i++) {
-            if(airports.get(i).getAlias().equals(alias)){
+    public static Airport getAirportFromAliasName(String alias) {
+        for (int i = 0; i < airports.size(); i++) {
+            if (airports.get(i).getAlias().equals(alias)) {
                 return airports.get(i);
             }
         }
