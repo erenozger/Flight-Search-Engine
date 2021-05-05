@@ -4,10 +4,10 @@ import java.util.HashMap;
 public class Graph {
 
     public static HashMap<Integer, Airport> airportsMap = new HashMap<Integer, Airport>(); //holds vertices of the graph (airports)
-    public static Edge[][] graphAdjList;
+    public static ArrayList<Edge>[][] graphAdjList;
 
     public void createGraph(ArrayList<Airport> airports, ArrayList<Edge> edges) {
-        graphAdjList = new Edge[airports.size()][airports.size()];
+        graphAdjList = new ArrayList[airports.size()][airports.size()];
         for (int i = 0; i < airports.size(); i++) {
             airportsMap.put(i, airports.get(i));
         }
@@ -24,14 +24,20 @@ public class Graph {
         return -1;
     }
 
-    public void addEdgeToGraph(Edge[][] graphAdjList, Edge edge, HashMap<Integer, Airport> airportsMap) {
+    public void addEdgeToGraph(ArrayList<Edge>[][]  graphAdjList, Edge edge, HashMap<Integer, Airport> airportsMap) {
         int source = getKeyValueFromAdjList(edge.getDeparture_airport().getAlias());
         int dest = getKeyValueFromAdjList(edge.getArrival_airport().getAlias());
-        graphAdjList[source][dest] = edge;
+        if(graphAdjList[source][dest] == null){
+            ArrayList<Edge> newEdgeList = new ArrayList<Edge>();
+            newEdgeList.add(edge);
+            graphAdjList[source][dest] = newEdgeList;
+        }else{
+            graphAdjList[source][dest].add(edge);
+        }
     }
 
 
-    public static void printAdjMatrix(Edge[][] graphAdjList, int n, HashMap<Integer, Airport> airportsMap) {
+    public static void printAdjMatrix(ArrayList<Edge>[][] graphAdjList, int n, HashMap<Integer, Airport> airportsMap) {
         // Adj list testing display function
         System.out.print("\t");
         for (int z = 0; z < n; z++) {
