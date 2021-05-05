@@ -25,7 +25,7 @@ public class Main {
         Graph gr = new Graph();
         gr.createGraph(Airport.airports,Edge.edges);
 
-        Graph.printAdjMatrix(Graph.graphAdjList,Airport.airports.size(),Graph.airportsMap);
+//        Graph.printAdjMatrix(Graph.graphAdjList,Airport.airports.size(),Graph.airportsMap);
 
         Operations.readCommands(Reader.readFile(commandListFile));
 

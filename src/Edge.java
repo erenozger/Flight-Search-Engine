@@ -50,6 +50,7 @@ public class Edge {
         cal.setTime(date);
         cal.add(Calendar.HOUR_OF_DAY, hour);
         cal.add(Calendar.MINUTE, minutes);
+
         return cal.getTime();
     }
 
@@ -109,22 +110,36 @@ public class Edge {
         this.arrival_date = arrival_date;
     }
 
+//    @Override
+//    public String toString() {
+//        return "Edge : \n" +
+//                "flight id : " + this.flight_id + "\n" +
+//                "departure_airport: " + this.departure_airport + "\n" +
+//                "arrival_airport: " + this.arrival_airport + "\n" +
+//                "dept_date : " + Main.dateToString(this.dept_date) + "\n" +
+//                "arrival_date: " + Main.dateToString(this.arrival_date) + "\n" +
+//                "duration: " + this.duration + "\n" +
+//                "price: " + this.price + "\n" +
+//                "-------------------------------------------------------------";
+//    }
+
     @Override
     public String toString() {
-        return "Edge : \n" +
-                "flight id : " + this.flight_id + "\n" +
-                "departure_airport: " + this.departure_airport + "\n" +
-                "arrival_airport: " + this.arrival_airport + "\n" +
-                "dept_date : " + Main.dateToString(this.dept_date) + "\n" +
-                "arrival_date: " + Main.dateToString(this.arrival_date) + "\n" +
-                "duration: " + this.duration + "\n" +
-                "price: " + this.price + "\n" +
-                "-------------------------------------------------------------";
+        return this.flight_id + "\t" + this.departure_airport.getAlias()+"->"+this.arrival_airport.getAlias();
     }
 
     public static void printAllEdges() {
         for (int i = 0; i < edges.size(); i++)
             System.out.println(edges.get(i));
+    }
+
+    public static Edge findEdgeFromFlightId(String id){
+        for(int i = 0 ; i<edges.size();i++){
+            if(edges.get(i).getFlight_id().equals(id)){
+                return edges.get(i);
+            }
+        }
+        return null;
     }
 
 }

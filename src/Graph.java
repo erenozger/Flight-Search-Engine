@@ -14,10 +14,9 @@ public class Graph {
         for (int j = 0; j < edges.size(); j++) {
             addEdgeToGraph(graphAdjList, edges.get(j), airportsMap);
         }
-//        printAdjMatrix(graphAdjList, airports.size(), airportsMap);
     }
 
-    public int getKeyValueFromAdjList(String value, HashMap<Integer, Airport> airportsMap) {
+    public static int getKeyValueFromAdjList(String value) {
         for (int i = 0; i < airportsMap.size(); i++) {
             if (airportsMap.get(i).getAlias().equals(value))
                 return i;
@@ -26,8 +25,8 @@ public class Graph {
     }
 
     public void addEdgeToGraph(Edge[][] graphAdjList, Edge edge, HashMap<Integer, Airport> airportsMap) {
-        int source = getKeyValueFromAdjList(edge.getDeparture_airport().getAlias(), airportsMap);
-        int dest = getKeyValueFromAdjList(edge.getArrival_airport().getAlias(), airportsMap);
+        int source = getKeyValueFromAdjList(edge.getDeparture_airport().getAlias());
+        int dest = getKeyValueFromAdjList(edge.getArrival_airport().getAlias());
         graphAdjList[source][dest] = edge;
     }
 

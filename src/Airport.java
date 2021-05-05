@@ -42,6 +42,16 @@ public class Airport {
         }
     }
 
+    public static ArrayList<Airport> getAirportsFromCity (String cityName) {
+        ArrayList<Airport> cityAirports = new ArrayList<Airport>();
+        for(int i = 0 ; i<airports.size();i++){
+            if(airports.get(i).getCity().equals(cityName)){
+                cityAirports.add(airports.get(i));
+            }
+        }
+        return cityAirports;
+    }
+
 
     public String getAlias() {
         return alias;
