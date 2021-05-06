@@ -115,10 +115,6 @@ public class Edge {
         return this.flight_id + "\t" + this.departure_airport.getAlias()+"->"+this.arrival_airport.getAlias();
     }
 
-    public static void printAllEdges() {
-        for (int i = 0; i < edges.size(); i++)
-            System.out.println(edges.get(i));
-    }
 
     public static Edge findEdgeFromFlightId(String id){
         for(int i = 0 ; i<edges.size();i++){

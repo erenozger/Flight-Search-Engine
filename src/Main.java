@@ -29,6 +29,7 @@ public class Main {
 
         Operations.readCommands(Reader.readFile(commandListFile));
 
+
     }
 
     public static Date stringToDate(String date) throws ParseException {
