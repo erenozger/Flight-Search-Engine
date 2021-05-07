@@ -5,9 +5,10 @@ public class Airport {
     private String city;
 
     static ArrayList<Airport> airports = new ArrayList<Airport>();
+    //Arraylist specifying all airports registered in the system.
 
-    public Airport() {
-    }
+    public Airport() {}
+    //empty constructor.
 
     public Airport(String alias, String city) {
         this.alias = alias;
@@ -33,13 +34,6 @@ public class Airport {
             }
         }
         return null;
-
-    }
-
-    public static void printAllAirports() {
-        for (int i = 0; i < airports.size(); i++) {
-            System.out.println(airports.get(i));
-        }
     }
 
     public static ArrayList<Airport> getAirportsFromCity (String cityName) {
@@ -52,21 +46,12 @@ public class Airport {
         return cityAirports;
     }
 
-
     public String getAlias() {
         return alias;
     }
 
-    public void setAlias(String alias) {
-        this.alias = alias;
-    }
-
     public String getCity() {
         return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
     }
 
     @Override

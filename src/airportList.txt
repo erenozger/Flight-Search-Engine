@@ -1,4 +1,7 @@
-Sofia	SOF
+Paris	CDG	ORY	BVA
+Rome	FCO	CIA
 Athens	ATH
-Madrid	MAD
-Istanbul	IST	SAW
+Sofia	SOF
+Brussels	BRU	CRL
+Budapest	BUD
+Kiev	KBP	IEV

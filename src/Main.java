@@ -16,18 +16,16 @@ public class Main {
         PrintStream o = new PrintStream(new File("output.txt"));
         System.setOut(o);               // Prints to output file
 
-        Airport.setAllAirports(Reader.readFile(airportListFile));
-//        Airport.printAllAirports();
+        Airport.setAllAirports(Reader.readFile(airportListFile)); //Saves the entire airport file to the system.
 
-        Edge.setAllEdges(Reader.readFile(flightListFile));
-//        Edge.printAllEdges();
+        Edge.setAllEdges(Reader.readFile(flightListFile)); //Saves the entire flight list file to the system.
 
         Graph gr = new Graph();
         gr.createGraph(Airport.airports,Edge.edges.getList());
-
-//        Graph.printAdjMatrix(Graph.graphAdjList,Airport.airports.size(),Graph.airportsMap);
+        //Creates a new graph and applies the adj matrix as read from the files.
 
         Operations.readCommands(Reader.readFile(commandListFile));
+        //Line by line commands are applied on the graph saved in the system. It calculates the required operations inside the Operations folder.
 
 
     }
@@ -37,6 +35,7 @@ public class Main {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
         Date dateFormatted = simpleDateFormat.parse(date);
         return dateFormatted;
+        //Converts the dates defined as string to date format.
     }
 
     public static String dateToString(Date date) {
@@ -44,6 +43,7 @@ public class Main {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
         String stringDate = simpleDateFormat.format(date);
         return stringDate;
+        //Converts date format to string to print it to the screen as a string.
     }
 
 

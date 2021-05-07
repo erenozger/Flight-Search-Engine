@@ -1,6 +1,4 @@
-import java.text.Format;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class Edge {
@@ -13,9 +11,6 @@ public class Edge {
     private int price;
 
     static ArrayOfEdges edges = new ArrayOfEdges();
-
-    public Edge() {
-    }
 
     public Edge(String flight_id, Airport departure_airport, Airport arrival_airport, Date dept_date, String duration, Date arrival_date, int price) {
         this.flight_id = flight_id;
@@ -43,6 +38,8 @@ public class Edge {
     }
 
     public static Date findArrivalDate(Date date, String duration) {
+        //The function that helps calculate the arrival time of the flight and record it in the system.
+        //Calculates the duration of stay by adding duration.
         Calendar cal = new GregorianCalendar();
         String[] splitDuration = duration.split(":");
         int hour = Integer.parseInt(splitDuration[0]);
@@ -50,7 +47,6 @@ public class Edge {
         cal.setTime(date);
         cal.add(Calendar.HOUR_OF_DAY, hour);
         cal.add(Calendar.MINUTE, minutes);
-
         return cal.getTime();
     }
 
@@ -58,63 +54,31 @@ public class Edge {
         return flight_id;
     }
 
-    public void setFlight_id(String flight_id) {
-        this.flight_id = flight_id;
-    }
-
     public Airport getDeparture_airport() {
         return departure_airport;
-    }
-
-    public void setDeparture_airport(Airport departure_airport) {
-        this.departure_airport = departure_airport;
     }
 
     public Airport getArrival_airport() {
         return arrival_airport;
     }
 
-    public void setArrival_airport(Airport arrival_airport) {
-        this.arrival_airport = arrival_airport;
-    }
-
     public Date getDept_date() {
         return dept_date;
-    }
-
-    public void setDept_date(Date dept_date) {
-        this.dept_date = dept_date;
-    }
-
-    public String getDuration() {
-        return duration;
-    }
-
-    public void setDuration(String duration) {
-        this.duration = duration;
     }
 
     public int getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
     public Date getArrival_date() {
         return arrival_date;
     }
 
-    public void setArrival_date(Date arrival_date) {
-        this.arrival_date = arrival_date;
-    }
 
     @Override
     public String toString() {
         return this.flight_id + "\t" + this.departure_airport.getAlias()+"->"+this.arrival_airport.getAlias();
     }
-
 
     public static Edge findEdgeFromFlightId(String id){
         for(int i = 0 ; i<edges.getList().size();i++){
