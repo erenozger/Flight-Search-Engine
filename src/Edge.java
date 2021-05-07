@@ -12,7 +12,7 @@ public class Edge {
     private Date arrival_date;
     private int price;
 
-    static ArrayList<Edge> edges = new ArrayList<Edge>();
+    static ArrayOfEdges edges = new ArrayOfEdges();
 
     public Edge() {
     }
@@ -25,7 +25,7 @@ public class Edge {
         this.duration = duration;
         this.arrival_date = arrival_date;
         this.price = price;
-        Edge.edges.add(this);
+        Edge.edges.getList().add(this);
     }
 
     public static void setAllEdges(ArrayList<String> flightList) throws ParseException {
@@ -117,9 +117,9 @@ public class Edge {
 
 
     public static Edge findEdgeFromFlightId(String id){
-        for(int i = 0 ; i<edges.size();i++){
-            if(edges.get(i).getFlight_id().equals(id)){
-                return edges.get(i);
+        for(int i = 0 ; i<edges.getList().size();i++){
+            if(edges.getList().get(i).getFlight_id().equals(id)){
+                return edges.getList().get(i);
             }
         }
         return null;

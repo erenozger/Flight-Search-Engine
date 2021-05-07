@@ -102,7 +102,7 @@ public class Operations {
             return;
         }
         for (int destCount = 0; destCount < Graph.graphAdjList[source].length; destCount++) {
-            ArrayList<Edge> edgeList = Graph.graphAdjList[source][destCount];
+            ArrayList<Edge> edgeList = Graph.graphAdjList[source][destCount].getList();
             if (edgeList != null) {
                 for (Edge i : edgeList) {
                     int nextAirportId;

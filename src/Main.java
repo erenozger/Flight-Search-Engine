@@ -23,7 +23,7 @@ public class Main {
 //        Edge.printAllEdges();
 
         Graph gr = new Graph();
-        gr.createGraph(Airport.airports,Edge.edges);
+        gr.createGraph(Airport.airports,Edge.edges.getList());
 
 //        Graph.printAdjMatrix(Graph.graphAdjList,Airport.airports.size(),Graph.airportsMap);
 
